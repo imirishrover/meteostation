@@ -5,6 +5,7 @@ meteostation_win8.1\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 meteostation_win8.1\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 meteostation_win8.1\timers.o: ../Inc/FreeRTOSConfig.h
 meteostation_win8.1\timers.o: ../Inc/main.h
+meteostation_win8.1\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 meteostation_win8.1\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 meteostation_win8.1\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 meteostation_win8.1\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h

@@ -1,8 +1,9 @@
 meteostation_win8.1\at_commands.o: AT_commands.c
-meteostation_win8.1\at_commands.o: ../Inc/main.h
-meteostation_win8.1\at_commands.o: ../Inc/AT_commands.h
+meteostation_win8.1\at_commands.o: ..\Inc\main.h
+meteostation_win8.1\at_commands.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+meteostation_win8.1\at_commands.o: ..\Inc\AT_commands.h
 meteostation_win8.1\at_commands.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-meteostation_win8.1\at_commands.o: ../Inc/stm32f4xx_hal_conf.h
+meteostation_win8.1\at_commands.o: ..\Inc\stm32f4xx_hal_conf.h
 meteostation_win8.1\at_commands.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 meteostation_win8.1\at_commands.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 meteostation_win8.1\at_commands.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h

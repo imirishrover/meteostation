@@ -54,6 +54,8 @@
 /* USER CODE BEGIN Includes */
 #include "locator.h"
 #include "AT_commands.h"
+#include "AT_init.h"
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -79,28 +81,11 @@ typedef struct struct_arg_t {
 struct_arg arg01;
 #define QUEUE_SIZE (uint32_t) 2
 uint8_t address = 8;
-char buf_usart[1];
+uint8_t buf_usart[40];
 
 
 
-struct commands AT = { 
-				.AT = "AT",
-				.check_version = "AT+GMR",
-				.check_baudrate_pool = "AT+CIOBAUD=?",
-				.set_baudrate_115200 = "AT+CIOBAUD=115200",
-				.wifi_set_connection_STA = "AT+CWMODE=1",
-				.wifi_set_connection_AT = "AT+CWMODE=2",
-				.wifi_set_connection_BOTH = "AT+CWMODE=3",
-				.check_wifi_spots = "AT+CWLAP",
-				.wifi_connect = "AT+CWJAP=\"Test\",\"password\"",
-				.check_ip = "AT+CIFSR",
-				.wifi_disconnect = "AT+CWQAP",
-				.wifi_create_own_AT = "AT+CWSAP=\"SSID\",\"PASSWORD\",CHANNEL, SECURITY",
-				.reset = "AT+RST",
-				
-				
-			
-};
+
 
 
 /* USER CODE END PV */
@@ -116,8 +101,7 @@ void StartTask03(void const * argument);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-//osPoolDef(mpool, 4, data_t);
-//osPoolId  mpool;
+
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -156,8 +140,11 @@ int main(void)
   MX_USART3_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+	HAL_Delay(100);
+	AT_AP_mode_init();
 	
-
+		
+		
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -359,7 +346,16 @@ static void MX_GPIO_Init(void)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 {
+	if(huart==&huart3)
 
+  {
+	
+    //osMessagePut(USART_QueueHandle, buf_usart[10], 100);
+		//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+		//HAL_UART_Transmit(&huart3,(uint8_t*)buf_usart,2,10);
+		HAL_UART_Receive_IT(&huart3, (uint8_t*)buf_usart,40);
+
+  }
 }
 /* USER CODE END 4 */
 
@@ -369,22 +365,20 @@ void StartDefaultTask(void const * argument)
 
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-	//HAL_UART_Receive_IT(&huart3, (uint8_t*)buf_usart,1);
 	
 	struct_arg *arg;
   arg = (struct_arg*) argument;
 	
-	
+	//HAL_UART_Receive_IT(&huart3, (uint8_t*)buf_usart,2);
 	//uint8_t counter = 0;
   for(;;)
   {
 		
 		//counter++;
-		
+			
 			uint8_t tmp_sensor[2] = {0,0};
 			I2C_start_metering(address);
 		  //osDelay(100);
-		//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 		  I2C_get_data (address, &tmp_sensor[0], 2);
 			/*if (tmp_sensor[0] != 0){
 				osSignalSet(StartTask02, 0x01);
@@ -419,12 +413,12 @@ void StartTask02(void const * argument)
 			uint8_t tmp = event1.value.v;
 			uint8_t *ptr = &tmp;
 			
-			HAL_UART_Transmit(&huart3, ptr, 1, 100);
+			//HAL_UART_Transmit(&huart3, ptr, 1, 100);
 				//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 				
 			}
 			//}
-    osDelay(1);
+    osDelay(1000);
   }
   /* USER CODE END StartTask02 */
 }
@@ -447,9 +441,10 @@ void StartTask03(void const * argument)
 		
 		//HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 		
-		HAL_UART_Transmit(&huart3,AT.AT, sizeof(AT.AT),100);
+		//HAL_UART_Transmit(&huart3,AT.AT, sizeof(AT.AT),100);
 		
-    osDelay(100);
+		
+    osDelay(1);
   }
   /* USER CODE END StartTask03 */
 }

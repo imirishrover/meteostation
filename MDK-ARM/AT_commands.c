@@ -1,10 +1,9 @@
 #include "main.h"
 #include "AT_commands.h"
 
-
+extern char* buf_usart[2];
 uint16_t bla = 99;
-
-
+uint8_t ref[2] = "OK";
 
 
 

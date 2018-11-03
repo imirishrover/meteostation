@@ -1,7 +1,8 @@
 meteostation_win8.1\stm32f4xx_it.o: ../Src/stm32f4xx_it.c
 meteostation_win8.1\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-meteostation_win8.1\stm32f4xx_it.o: ../Inc/stm32f4xx_hal_conf.h
-meteostation_win8.1\stm32f4xx_it.o: ../Inc/main.h
+meteostation_win8.1\stm32f4xx_it.o: ..\Inc\stm32f4xx_hal_conf.h
+meteostation_win8.1\stm32f4xx_it.o: ..\Inc\main.h
+meteostation_win8.1\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 meteostation_win8.1\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 meteostation_win8.1\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 meteostation_win8.1\stm32f4xx_it.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -32,11 +33,11 @@ meteostation_win8.1\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4x
 meteostation_win8.1\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 meteostation_win8.1\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 meteostation_win8.1\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-meteostation_win8.1\stm32f4xx_it.o: ../Inc/stm32f4xx_it.h
+meteostation_win8.1\stm32f4xx_it.o: ..\Inc\stm32f4xx_it.h
 meteostation_win8.1\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 meteostation_win8.1\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 meteostation_win8.1\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-meteostation_win8.1\stm32f4xx_it.o: ../Inc/FreeRTOSConfig.h
+meteostation_win8.1\stm32f4xx_it.o: ..\Inc\FreeRTOSConfig.h
 meteostation_win8.1\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 meteostation_win8.1\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 meteostation_win8.1\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
