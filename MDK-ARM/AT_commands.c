@@ -15,6 +15,6 @@ uint8_t ref[2] = "OK";
 //	ESP8266 *commands_v1;
 	//HAL_UART_Transmit(&huart3, commands_v1->AT, 10, 100);
                                                                                      
-	//HAL_UART_Receive(&huart3, at_status, 10, HAL_MAX_DELAY);
+	//HAL_UART_Receive(&huart3, at_status, 10, HAL_MAX_DELAY); //comment
 }*/
 
